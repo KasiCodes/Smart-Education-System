@@ -5,32 +5,51 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.kasiCodes.Smart.Education.System.model.Quiz;
+import com.kasiCodes.Smart.Education.System.repository.QuizRepository;
 
 @Service
 public class QuizService {
 
+    private QuizRepository quizRepository;
+
     public boolean deleteQuiz(Long id) {
+        if (quizRepository.existsById(id)) {
+            quizRepository.deleteById(id);
+            return true;
+        }
         return false;
+        
     }
 
     public Quiz getQuizById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getQuizById'");
+        if (quizRepository.existsById(id)) {
+            return quizRepository.findById(id).get();
+        }
+        return null;
     }
 
     public List<Quiz> getAllQuizzes() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllQuizzes'");
+        return quizRepository.findAll();
     }
 
     public Quiz createQuiz(Quiz quiz) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createQuiz'");
+
+        return quizRepository.save(quiz);
     }
 
     public Quiz updateQuiz(Long id, Quiz quizDetails) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateQuiz'");
+
+        if (quizRepository.existsById(id)) {
+            Quiz quiz = quizRepository.findById(id).get();
+            quiz.setQuestion(quizDetails.getQuestion());
+            quiz.setOption1(quizDetails.getOption1());
+            quiz.setOption2(quizDetails.getOption2());
+            quiz.setOption3(quizDetails.getOption3());
+            quiz.setOption4(quizDetails.getOption4());
+            quiz.setAnswer(quizDetails.getAnswer());
+            return quizRepository.save(quiz);
+        }
+        return null;
     }
     
 }
