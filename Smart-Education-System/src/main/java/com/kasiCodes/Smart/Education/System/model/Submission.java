@@ -64,6 +64,10 @@ public class Submission {
     @Column(name = "quiz_id", nullable = false)
     private Quiz quiz;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "student_id", nullable = false)
+    private User student;
+    
     public Submission() {
     }
 
