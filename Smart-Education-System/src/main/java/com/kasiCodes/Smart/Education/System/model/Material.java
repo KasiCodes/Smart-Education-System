@@ -1,7 +1,5 @@
 package com.kasiCodes.Smart.Education.System.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
