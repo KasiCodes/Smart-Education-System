@@ -79,8 +79,36 @@ public class Quiz {
         this.quizName = quizName;
     }
 
+    public int getQuizDuration() {
+        return quizDuration;
+    }
+
+    public void setQuizDuration(int quizDuration) {
+        this.quizDuration = quizDuration;
+    }
+
+    public int getQuizPassingPercentage() {
+        return quizPassingPercentage;
+    }
+
     public String getQuizDescription() {
         return quizDescription;
+    }
+
+    public void setQuizDescription(String quizDescription2) {
+        this.quizDescription = quizDescription2;
+    }
+
+   
+
+    public void setQuizDuration(Object quizDuration2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setQuizDuration'");
+    }
+
+    public void setQuizPassingPercentage(Object quizPassingPercentage2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setQuizPassingPercentage'");
     }
 
     

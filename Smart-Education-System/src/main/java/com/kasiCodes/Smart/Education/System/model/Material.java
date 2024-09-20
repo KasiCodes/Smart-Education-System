@@ -6,6 +6,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -24,7 +25,7 @@ public class Material {
     private String materialUrl; 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "course_id", nullable = false)
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
     public Material() {

@@ -41,12 +41,10 @@ public class QuizService {
 
         if (quizRepository.existsById(id)) {
             Quiz quiz = quizRepository.findById(id).get();
-            quiz.setQuestion(quizDetails.getQuestion());
-            quiz.setOption1(quizDetails.getOption1());
-            quiz.setOption2(quizDetails.getOption2());
-            quiz.setOption3(quizDetails.getOption3());
-            quiz.setOption4(quizDetails.getOption4());
-            quiz.setAnswer(quizDetails.getAnswer());
+            quiz.setQuizName(quizDetails.getQuizName());
+            quiz.setQuizDescription(quizDetails.getQuizDescription());
+            quiz.setQuizDuration(quizDetails.getQuizDuration());
+            quiz.setQuizPassingPercentage(quizDetails.getQuizPassingPercentage());
             return quizRepository.save(quiz);
         }
         return null;
